@@ -10,11 +10,11 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
-    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
-            emailjs.init("user_SIsl6CDUM8wpDxFhJkTnO");
+            emailjs.init("user_UVm5qc2oaQuouRGtcao3f");
         })();
     </script>
 </head>
@@ -23,7 +23,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <img height="80px" width="100px" class="me-3" src="img/blizzard logo.png" alt="">
+                <a class="navbar-brand" href="index.html"> <i class="fab fa-battle-net fa-3x"></i></a>
                 <a class="navbar-brand" href="index.html">Battlenet</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -41,16 +41,19 @@
                         <li class="nav-item active">
                             <a class="nav-link " href="admin.html">Administracion</a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link " href="contacto.html">Contacto</a>
+                        </li>
                     </ul>
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar en la tienda..." aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
             </div>
         </nav>
     </header>
-    <main class="container">
+    <!-- <main class="container">
         <section class="card my-5 border-dark">
             <div class="card-header bg-dark  text-light">
                 <h5 class="card-title">Formulario de contacto</h5>
@@ -104,10 +107,88 @@
                     Se produjo un error,intente mas tarde!
                 </div>
             </div>
-
+            
         </section>
+    </main> -->
+    <main class="container-fluid">
+        <div class="row py-5 px-10  justify-content-center">
+            <div class="col-sm-10 col-md-8 ">
+                <section class="card border-dark ">
+                    <div class="card-header navbar-dark bg-dark border-light">
+                        <h5 class="card-title">Formulario de Contacto</h5>
+                    </div>
+                    <div class="card-body navbar-dark bg-dark ">
+                        <form onsubmit="camposValidados(event)" id="formContacto">
+                            <div class="mb-3">
+                                <label class="form-label"> Nombre y Apellido: </label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                                    <input type="text" class="form-control" placeholder="Pedro Picapiedra" id="nombre"
+                                        onblur="campoRequerido(this)">
+                                    <div class="invalid-feedback">
+                                        Ups!. Los datos ingresados son incorrectos, por favor ingresalos nuevamente.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label"> Numero de Contacto: </label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
+                                    <input type="number" class="form-control" placeholder="3814093864" id="numContacto"
+                                        onblur="numeroRequerido(this)">
+                                    <div class="invalid-feedback">
+                                        Ups!. Los datos ingresados son incorrectos, por favor ingresalos nuevamente.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label"> Email: </label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                                    <input type="email" class="form-control" placeholder="pedropicapiedra@gmail.com"
+                                        id="mail" onblur="validarMail(this)">
+                                    <div class="invalid-feedback">
+                                        Ups!. Los datos ingresados son incorrectos, por favor ingresalos nuevamente.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label"> Consulta: </label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-pencil-square"></i></span>
+                                    <textarea type="text" class="form-control" placeholder="Ingresar consulta"
+                                        maxlength="250" id="consulta" onblur="consultaRequerida(this)"></textarea>
+                                    <div class="invalid-feedback">
+                                        Ups!. Recuerda que tu consulta al menos debe contener 25 caracteres.
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="form-label"> Caracteres ingresados:</label>
+                                    <label class="form-label mb-0" id="contador">0/250</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="checkTerminos">
+                                    <label class="form-check-label efectoPointer" data-bs-toggle="modal"
+                                        data-bs-target="#modalTerminos">
+                                        <p>Terminos y Condiciones</p>
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        Ups! Ocurrio un error, es obligatorio aceptar los Terminos y Condiciones.
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn colorBase text-light border-light" type="submit">Enviar</button>
+                            <button class="btn btn-danger text-light border-light" type="button"
+                                onclick="limpiarFormulario()">Borrar</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
-    <footer>
+    <!--     <footer>
         <section>
             <img class="navbar-footer-logo" src="img/blizzard logo.png" alt="">
         </section>
@@ -124,7 +205,37 @@
         </nav>
         <div class="d-flex justify-content-center">©2021 Blizzard Entertainment, Inc. Todos los derechos reservados.
         </div>
+    </footer> -->
+    <footer class=" container-fluid  mb-0 py-2">
+        <div class="row justify-content-center my-1">
+            <div class="col-sm-12 col-md-6">
+                <section>
+                    <img class="navbar-footer-logo" src="img/blizzard logo.png" alt="">
+                  </section>
+                <h6 class="mb-3 ms-4 d-flex justify-content-center"> Nuestras redes sociales para mantenerte al dia</h6>
+                <ul class="lista d-flex justify-content-center">
+                    <li class="mb-2 mx-3">
+                        <div class="input-group "></div>
+                        <a href="https://www.instagram.com/blizzard/" class="text-light" target="blank"><i
+                                class="bi bi-instagram fa-2x"></i>
+                        </a>
+                    </li>
+                    <li class="mb-2 mx-3">
+                        <a href="https://twitter.com/BlizzardCSEU_ES" class="text-light" target="blank"><i
+                                class="bi bi-twitter fa-2x"></i>
+                        </a>
+                    </li>
+                    <li class="mb-2 mx-3">
+                        <a href="https://www.facebook.com/Blizzard" class="text-light" target="black"><i
+                                class="bi bi-facebook fa-2x"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-center">©2021 Blizzard Entertainment, Inc. Todos los derechos reservados.</p>
     </footer>
+    <script src="https://kit.fontawesome.com/39a5d0f9dd.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>

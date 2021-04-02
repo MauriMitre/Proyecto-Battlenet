@@ -1,4 +1,4 @@
-footer{
+/*  footer{
     background-color: rgb(51, 51, 110);
     padding-top: 15px;
     padding-bottom: 15px;
@@ -7,13 +7,78 @@ footer{
     bottom: 0;
     left: 0;
 }
-.navbar-footer-logo{
-    display: block;
-    position: relative;
-    width: 124px;
-    height: 80px;
-    margin: 0 auto;
-}
 a{
     text-decoration: none;
+}  */
+.navbar-footer-logo {
+    display: block;
+    position: relative;
+    width: 154px;
+    height: 110px;
+    margin: 0 auto;
+}
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+body {
+    font-family: "PT Sans", sans-serif;
+    color: whitesmoke;
+}
+nav {
+    background-color: #1c2122;
+    position: fixed;
+    padding: 13px 8px;
+}
+main {
+    background: rgb(39, 118, 217);
+    background: linear-gradient(90deg, rgba(39, 118, 217, 1) 0%, rgba(0, 172, 255, 1) 50%, rgba(39, 118, 217, 1) 100%);
+}
+footer {
+    background: rgb(39,118,217);
+    background: linear-gradient(90deg, rgba(39,118,217,1) 0%, rgba(0,172,255,1) 50%, rgba(39,118,217,1) 100%);
+}
+.colorTexto {
+    color: whitesmoke;
+}
+.colorBase {
+    background-color: #104452;
+}
+.colorSecundario {
+    background-color: #191a55;
+}
+.efectoPointer p:hover {
+    cursor: pointer;
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+.ancho {
+    width: 75%;
+}
+
+@media all and (max-width: 576px) {
+    .responsive {
+        width: 25%;
+        padding: 0%;
+    }
+    .ancho {
+        width: 100%;
+    }
+}
+
+#linkRegistro:hover {
+    color: black;
+    cursor: pointer;
+    position: relative;
+    bottom: 1px;
+    right: 1px;
+    transition: 100ms;
+}
+
+.marginNav {
+    margin-top: 100px;
 }
