@@ -10,6 +10,10 @@
 a{
     text-decoration: none;
 }  */
+.avatar{
+    width: 300px;
+    border-radius: 50%;
+}
 .navbar-footer-logo {
     display: block;
     position: relative;
