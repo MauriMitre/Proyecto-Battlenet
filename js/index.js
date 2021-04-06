@@ -15,7 +15,7 @@ window.juegoDestacado = function (event) {
                   <div class="row g-0">
                     <div class="col-md-8">
                       <img
-                        src="img/inicio/${listaJuego[i].imagen}"
+                        src=" img/Juegos/${listaJuego[i].imagen}"
                         class="w-100"
                         alt="${listaJuego[i].nombre}"
                       />
@@ -78,7 +78,7 @@ function cargarJuego() {
         id="${listaJuegos[i].codigo}"
         onclick="enviarMensaje(${listaJuegos[i].codigo})"
           ><img
-            src="img/inicio/${listaJuegos[i].imagen}"
+            src="img/Juegos/${listaJuegos[i].imagen}"
             class="w-100"
             alt="${listaJuegos[i].nombre}"
         /></a>
@@ -91,7 +91,7 @@ function cargarJuego() {
         <a href="juegodetalle.html"
         id="${listaJuegos[i].codigo}"
           ><img
-            src="img/inicio/${listaJuegos[i].imagen}"
+            src="img/Juegos/${listaJuegos[i].imagen}"
             class="w-100"
             alt="${listaJuegos[i].nombre}"
         /></a>
@@ -104,7 +104,7 @@ function cargarJuego() {
         <a href="juegodetalle.html"
         id="${listaJuegos[i].codigo}"
           ><img
-            src="img/inicio/${listaJuegos[i].imagen}"
+            src="img/Juegos/${listaJuegos[i].imagen}"
             class="w-100"
             alt="${listaJuegos[i].nombre}"
         /></a>
@@ -117,7 +117,7 @@ function cargarJuego() {
         <a href="juegodetalle.html"
         id="${listaJuegos[i].codigo}"
           ><img
-            src="img/inicio/${listaJuegos[i].imagen}"
+            src="img/Juegos/${listaJuegos[i].imagen}"
             class="w-100"
             alt="${listaJuegos[i].nombre}"
         /></a>
@@ -130,7 +130,7 @@ function cargarJuego() {
         <a href="juegodetalle.html"
         id="${listaJuegos[i].codigo}"
           ><img
-            src="img/inicio/${listaJuegos[i].imagen}"
+            src="img/Juegos/${listaJuegos[i].imagen}"
             class="w-100"
             alt="${listaJuegos[i].nombre}"
         /></a>
@@ -143,7 +143,7 @@ function cargarJuego() {
         <a href="juegodetalle.html"
         id="${listaJuegos[i].codigo}"
           ><img
-            src="img/inicio/${listaJuegos[i].imagen}"
+            src="img/Juegos/${listaJuegos[i].imagen}"
             class="w-100"
             alt="${listaJuegos[i].nombre}"
         /></a>
@@ -156,7 +156,7 @@ function cargarJuego() {
         <a href="juegodetalle.html"
         id="${listaJuegos[i].codigo}"
           ><img
-            src="img/inicio/${listaJuegos[i].imagen}"
+            src="img/Juegos/${listaJuegos[i].imagen}"
             class="w-100"
             alt="${listaJuegos[i].nombre}"
         /></a>
@@ -169,7 +169,7 @@ function cargarJuego() {
         <a href="juegodetalle.html"
         id="${listaJuegos[i].codigo}"
           ><img
-            src="img/inicio/${listaJuegos[i].imagen}"
+            src="img/Juegos/${listaJuegos[i].imagen}"
             class="w-100"
             alt="${listaJuegos[i].nombre}"
         /></a>
