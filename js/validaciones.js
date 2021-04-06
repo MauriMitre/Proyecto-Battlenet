@@ -31,7 +31,7 @@ function numeroRequerido(numeros) {
 let mensaje = document.getElementById('consulta');
 let contador = document.getElementById('contador');
 
-mensaje.addEventListener('input', function (e) {
+mensaje.addEventListener('input', function(e) {
     let target = e.target;
     let longitudMax = target.getAttribute('maxlength');
     let longitudAct = target.value.length;

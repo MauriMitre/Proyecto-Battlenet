@@ -27,25 +27,32 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Juegos</a>
+                            <a class="nav-link active" aria-current="page" href="index.html" id="">Inicio</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="login.html">Login</a>
+                        <li class="nav-item active" id="navLogin">
+                            <a class="nav-link" href="login.html" id="login">Login</a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item d-none" id="cerrarSesion">
+                            <button type="button" class="btn text-light" id="cerrarS" onclick="cerrarSesion()">Cerrar
+                                Sesion</button>
+                        </li>
+                        <li class="nav-item d-none" id="user">
+                            <a class="nav-link" id="nombreUser"></a>
+                        </li>
+                        <li class="nav-item active" id="navAdmin">
                             <a class="nav-link " href="admin.html">Administracion</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link " href="contacto.html">Contacto</a>
+                            <a class="nav-link " href="contacto.html" id="">Contacto</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link " href="nosotros.html">Nosotros</a>
+                            <a class="nav-link " href="nosotros.html" id="">Nosotros</a>
                         </li>
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Buscar en la tienda..."
                             aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -121,7 +128,7 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
     <script src="js/validaciones.js"></script>
-    
+    <script type="module" src="js/usuarioingresado.js"></script>
 </body>
 
 </html>

@@ -1,15 +1,4 @@
-/*  footer{
-    background-color: rgb(51, 51, 110);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-a{
-    text-decoration: none;
-}  */
+
 .avatar{
     width: 300px;
     border-radius: 50%;
@@ -43,7 +32,7 @@ footer {
     color: whitesmoke;
 }
 .colorBase {
-    background-color: #104452;
+    background-color:  rgb(17, 40, 68);
 }
 .colorSecundario {
     background-color: #191a55;
@@ -84,5 +73,6 @@ li {
 }
 
 .marginNav {
-    margin-top: 100px;
+    padding-top: 150px;
+    padding-bottom: 150px;
 }

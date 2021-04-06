@@ -11,6 +11,7 @@
     <title>Battlenet/Contacto</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.6/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
@@ -33,25 +34,32 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Juegos</a>
+                            <a class="nav-link active" aria-current="page" href="index.html" id="">Inicio</a>
+                        </li>
+                        <li class="nav-item active" id="navLogin">
+                            <a class="nav-link" href="login.html" id="login">Login</a>
+                        </li>
+                        <li class="nav-item d-none" id="cerrarSesion">
+                            <button type="button" class="btn text-light" id="cerrarS" onclick="cerrarSesion()">Cerrar
+                                Sesion</button>
+                        </li>
+                        <li class="nav-item d-none" id="user">
+                            <a class="nav-link" id="nombreUser"></a>
+                          </li>
+                        <li class="nav-item active" id="navAdmin">
+                            <a class="nav-link " href="admin.html" >Administracion</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="login.html">Login</a>
+                            <a class="nav-link " href="contacto.html" id="">Contacto</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link " href="admin.html">Administracion</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link " href="contacto.html">Contacto</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link " href="nosotros.html">Nosotros</a>
+                            <a class="nav-link " href="nosotros.html" id="">Nosotros</a>
                         </li>
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Buscar en la tienda..."
                             aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -69,7 +77,6 @@
                             <div class="mb-3">
                                 <label class="form-label"> Nombre y Apellido: </label>
                                 <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                                     <input type="text" class="form-control" placeholder="Pedro Picapiedra" id="nombre"
                                         onblur="campoRequerido(this)">
                                     <div class="invalid-feedback">
@@ -79,8 +86,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label"> Numero de Contacto: </label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
+                                <div class="input-group">                                    
                                     <input type="number" class="form-control" placeholder="3814093864" id="numContacto"
                                         onblur="numeroRequerido(this)">
                                     <div class="invalid-feedback">
@@ -90,8 +96,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label"> Email: </label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                                <div class="input-group">                                  
                                     <input type="email" class="form-control" placeholder="pedropicapiedra@gmail.com"
                                         id="mail" onblur="validarMail(this)">
                                     <div class="invalid-feedback">
@@ -102,7 +107,6 @@
                             <div class="mb-3">
                                 <label class="form-label"> Consulta: </label>
                                 <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-pencil-square"></i></span>
                                     <textarea type="text" class="form-control" placeholder="Ingresar consulta"
                                         maxlength="250" id="consulta" onblur="consultaRequerida(this)"></textarea>
                                     <div class="invalid-feedback">
@@ -168,6 +172,7 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
     <script src="js/validaciones.js"></script>
+    <script type="module" src="js/usuarioingresado.js"></script>
 </body>
 
 </html>

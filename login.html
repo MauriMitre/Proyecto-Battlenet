@@ -11,6 +11,13 @@
     <title>Battlenet/Login</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.6/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_UVm5qc2oaQuouRGtcao3f");
+        })();
+    </script>
 </head>
 
 <body>
@@ -27,43 +34,51 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Juegos</a>
+                            <a class="nav-link active" aria-current="page" href="index.html" id="">Inicio</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="login.html">Login</a>
+                        <li class="nav-item active" id="navLogin">
+                            <a class="nav-link" href="login.html" id="login">Login</a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item d-none" id="cerrarSesion">
+                            <button type="button" class="btn text-light" id="cerrarS" onclick="cerrarSesion()">Cerrar
+                                Sesion</button>
+                        </li>
+                        <li class="nav-item d-none" id="user">
+                            <a class="nav-link" id="nombreUser"></a>
+                        </li>
+                        <li class="nav-item active" id="navAdmin">
                             <a class="nav-link " href="admin.html">Administracion</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link " href="contacto.html">Contacto</a>
+                            <a class="nav-link " href="contacto.html" id="">Contacto</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link " href="nosotros.html">Nosotros</a>
+                            <a class="nav-link " href="nosotros.html" id="">Nosotros</a>
                         </li>
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Buscar en la tienda..."
                             aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
         </nav>
     </header>
     <main class="container-fluid">
-        <div class="row py-5 px-10  justify-content-center">
+        <div class="row marginNav justify-content-center">
             <div class="col-sm-10 col-md-8 ">
-                <section class="card border-dark ">
+                <section class="card border-dark pt-10">
                     <div class="card-header navbar-dark bg-dark border-light">
-                        <h5 class="card-title">Formulario de Contacto</h5>
+                        <h5 class="card-title">Login</h5>
                     </div>
                     <div class="card-body navbar-dark bg-dark ">
-                        <form id="formContacto">
+                        <form onsubmit="validacionLogin(event)">
                             <div class="mb-3">
                                 <label class="form-label"> Usuario </label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Pedro Picapiedra" id="nombre">
+                                    <input onblur="validarUsuario(this)" type="text" class="form-control"
+                                        placeholder="Pedro Picapiedra" id="usuario">
                                     <div class="invalid-feedback">
                                         Ups!. Los datos ingresados son incorrectos, por favor ingresalos nuevamente.
                                     </div>
@@ -72,7 +87,8 @@
                             <div class="mb-3">
                                 <label class="form-label">Contraseña</label>
                                 <div class="input-group">
-                                    <input type="password" class="form-control" maxlength="15" id="password">
+                                    <input onblur="validarPassword(this)" type="password" class="form-control"
+                                        placeholder="contraseña123" maxlength="15" id="password">
                                     <div class="invalid-feedback" id="feedbackPassword">
                                         Ups!. Error recuerda que la contraseña debe contener entre (6-15) caracteres.
                                     </div>
@@ -80,14 +96,58 @@
                             </div>
                             <button class="btn colorBase text-light border-light" type="submit">Enviar</button>
                             <button class="btn btn-danger text-light border-light" type="button">Borrar</button>
-                            <a href="registro.html"><button class="btn colorBase text-light border-light"
-                                    type="button">Registrarse</button></a>
+                            <a id="linkRegistro" class="small" data-bs-toggle="modal"
+                                data-bs-target="#modalUsuario"><button
+                                    class="btn colorBase text-light border-light">Registrarse</button>
+                            </a>
                         </form>
                     </div>
                 </section>
             </div>
         </div>
     </main>
+    <!-- Modal usuario -->
+    <div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="modalUsuarioLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalUsuarioLabel">Nuevo Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formUsuario" onsubmit="crearNuevoUsuario(event)">
+                        <div class="mb-3">
+                            <label class="form-label">Email*</label>
+                            <input type="email" class="form-control" id="emailUsuario"
+                                placeholder="mitremauricio@gmail.com" onblur="validarEmail(this)" required>
+                            <div id="feedbackEmail" class="invalid-feedback">Debe ingresar una direccion de email
+                                valido.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nombre de usuario*</label>
+                            <input type="text" class="form-control" id="nombreUsuario" placeholder="Mauri4D"
+                                onblur="validarNombreUsuario(this)" required>
+                            <div id="feedbackUsuario" class="invalid-feedback">Debe ingresar un nombre de usuario valido
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label type="text" class="form-label">Password*</label>
+                            <input type="password" class="form-control" id="passUsuario" placeholder="Contraseña123"
+                                onblur="validarPassword(this)" required>
+                            <div class="invalid-feedback">Debe ingresar un password valido.</div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="terminos" required>
+                            <label class="form-check-label" for="exampleCheck1">Acepto terminos y condiciones*</label>
+                            <div class="invalid-feedback">Debe aceptar los terminos y condiciones.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                    </form>
+                    <div class="alert alert-success mt-3 d-none" role="alert" id="alerta"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class=" container-fluid  mb-0 py-2">
         <div class="row justify-content-center my-1">
             <div class="col-sm-12 col-md-6">
@@ -122,7 +182,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
-    <script src="js/validaciones.js"></script>
+    <script type="module" src="js/login.js"></script>
+    <script type="module" src="js/usuarioingresado.js"></script>
+    <script type="module" src="js/ValidacionesRegistro.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,22 @@
+[{
+    "codigo": "1",
+    "nombre": "Fifa 2020",
+    "descripcion": "EA Sport",
+    "publicado": true,
+    "deatacado": false
+},
+{
+    "codigo": "2",
+    "nombre": "Mario Bros",
+    "descripcion": "Nintendo",
+    "publicado": true,
+    "deatacado": true
+},
+{
+    "codigo": "3",
+    "nombre": "Tom Raider",
+    "descripcion": "EA Games",
+    "publicado": true,
+    "deatacado": false
+}
+]
