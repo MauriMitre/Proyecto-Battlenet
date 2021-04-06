@@ -41,4 +41,4 @@ _Contraseña : proyecto123_
 
 ## Expresiones de gratitud
 
-_Quiero agradecer a todo el equipo de rolling school por haber tenido la mejor onda para enseñar y por esperarme dos semanas mas para poder terminar el proyecto.
+_Quiero agradecer a todo el equipo de rolling school por haber tenido la mejor onda para enseñar y por esperarme dos semanas mas para poder terminar el proyecto._
