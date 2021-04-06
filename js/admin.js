@@ -6,11 +6,6 @@ let listaProductos=[];
 
 const modalProducto = new bootstrap.Modal(document.getElementById('modalProducto'));
 
-//variable booliana para guardar o agregar 
-// modificarProducto = false en este caso agrego un nuevo producto
-//moificarProducto = true modifico un producto
-
-
 let modificarProducto = false;
 
 let btnAgredar = document.getElementById('btnAgregar');
@@ -86,8 +81,8 @@ function dibujarTabla (Productos){
         <th>${Productos[i].descripcion}</th>
         <th>${Productos[i].imagen}</th>
         <th><input type="checkbox" ${Productos[i].publicado ? 'checked' : ''} onchange="publicarProducto('${Productos[i].codigo}')" id="publicar" class="form-check-input"></th>
-        <th><button><i class="fas fa-star" onclick="destacarProducto(this)"id="${Productos[i].codigo}"></i></button></th>
-
+        <th><button><i class="far fa-circle" onclick="destacarProducto(this)"id="${Productos[i].codigo}"></i></button></th>
+        
         <th>
           <button><i class="far fa-edit" onclick="cargarProducto(this)" id='${Productos[i].codigo}'></i></button>
           <button><i class="far fa-trash-alt" onclick="eliminarProductos(this)" id="${Productos[i].codigo}"></i></button>
@@ -128,27 +123,6 @@ window.publicarProducto = function (codigo){
       
 }
 
-window.destacarProducto = function (boton){
-  console.log(boton);
-  console.log("id del boton" + boton.id);
-  let destacado = document.getElementById(boton.id);
-  for(let i in listaProductos){
-    if(listaProductos[i].codigo == boton.id && listaProductos[i].destacar == true){
-      console.log('true');
-      listaProductos[i].destacar = false;
-      destacado.className = "fas fa-star";
-    }else if(listaProductos[i].codigo == boton.id && listaProductos[i].destacar == false){
-      console.log('false');
-      listaProductos[i].destacar = true;
-      destacado.className = "fas fa-star text-primary"
-    }
-  }
-  let destacar = listaProductos.find(producto => producto.codigo === boton.id);
-  console.log(destacar);
-
-  
-
-}
 
 
 window.eliminarProductos = function (boton){
